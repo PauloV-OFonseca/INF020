@@ -11,6 +11,7 @@ public class Consumidor {
 		fabrica.subtrairContador();
 		fabrica.subtrairMutex();
 		fabrica.subtrairItems();
+		System.out.println("Algumas coisas foram consumidas");
 	}
 	
 }

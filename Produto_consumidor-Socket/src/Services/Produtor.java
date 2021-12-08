@@ -11,5 +11,6 @@ public class Produtor {
 		fabrica.somarContador();
 		fabrica.somarMutex();
 		fabrica.somarItems();
+		System.out.println("Algumas coisas foram produzidas");
 	}
 }

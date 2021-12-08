@@ -42,4 +42,14 @@ public class Fabrica {
 	public void somarItems() {
 		this.items.up();
 	}
+	
+	public void produzir() {
+		Produtor produtor = new Produtor(getInstance());
+		produtor.produzir();
+	}
+
+	public void consumir() {
+		Consumidor consumidor = new Consumidor(getInstance());
+		consumidor.consumir();
+	}
 }

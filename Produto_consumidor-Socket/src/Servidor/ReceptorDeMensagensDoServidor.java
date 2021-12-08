@@ -21,9 +21,9 @@ public class ReceptorDeMensagensDoServidor implements Runnable {
 		while (scanner.hasNextLine()) {
 			String mensagem = scanner.nextLine();
 			if (mensagem.startsWith("p")) 
-				System.out.println("Mensagem enviada por produtor");
+				fabrica.produzir();
 			else 
-				System.out.println("Mensagem enviada por consumidor");
+				fabrica.consumir();
 		}
 		scanner.close();
 	}
