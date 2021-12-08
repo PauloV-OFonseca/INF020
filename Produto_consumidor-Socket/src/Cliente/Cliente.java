@@ -3,6 +3,7 @@ import java.io.*;
 import java.net.*;
 
 public class Cliente {
+	//Caso o cliente conecte-se ao servidor, ele pode se tornar um consumidor ou um produtor
 	private String host = "127.0.0.1";
     private int porta = 12345;
     private Socket cliente;
@@ -14,6 +15,7 @@ public class Cliente {
 		new Cliente();
     }
 
+    //Inicialização dos métodos de conexão do cliente
     public Cliente() {
         try {
             conectaSocket();

@@ -11,6 +11,7 @@ public class Servidor {
 		new Servidor();
 	}
 	
+	//Inicialização dos métodos de conexão do servidor
 	public Servidor() throws IOException{
 		ServerSocket servidor = new ServerSocket(this.porta);
 		System.out.println("Servidor rodando na porta: " + this.porta);
