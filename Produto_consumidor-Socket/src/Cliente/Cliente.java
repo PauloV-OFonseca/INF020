@@ -48,17 +48,17 @@ public class Cliente {
 			tipo = entrada.nextLine();
 		}
 		
-		if(tipo.equalsIgnoreCase("p")) {
-			System.out.println("Você escolheu ser produtor");
-		}else 
-			System.out.println("Você escolheu ser consumidor");
 		
 		if(tipo.equalsIgnoreCase("p"))
 			System.out.println("Digite algo para produzir");
-
-		while (entrada.hasNextLine()) {
-			mensagem = entrada.nextLine();
-			saida.println(tipo + " - "+ mensagem);
+		else 
+			System.out.println("Aperte enter para consumir");
+		
+		while(true) {
+			while (entrada.hasNextLine()) {
+				mensagem = entrada.nextLine();
+				saida.println(tipo + " - "+ mensagem);
+			}
 		}
     }
 
