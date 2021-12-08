@@ -9,6 +9,8 @@ public class Consumidor {
 	
 	public void consumir() {
 		fabrica.subtrairContador();
+		fabrica.subtrairMutex();
+		fabrica.subtrairItems();
 	}
 	
 }

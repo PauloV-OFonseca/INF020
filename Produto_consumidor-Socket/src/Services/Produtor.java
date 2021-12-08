@@ -9,5 +9,7 @@ public class Produtor {
 	
 	public void produzir() {
 		fabrica.somarContador();
+		fabrica.somarMutex();
+		fabrica.somarItems();
 	}
 }
