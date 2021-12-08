@@ -5,11 +5,18 @@ public class Fabrica {
 	private int contador;
 	private Semaforo mutex;
 	private Semaforo items;
+	private static Fabrica instancia;
 	
 	private Fabrica() {
 		this.contador = 0;
 		this.mutex = new Semaforo(1);
 		this.items = new Semaforo(0);
+	}
+	
+	public static Fabrica getInstance() {
+		if(instancia == null) 
+			instancia = new Fabrica();
+		return instancia;
 	}
 	
 	public void subtrairContador() {

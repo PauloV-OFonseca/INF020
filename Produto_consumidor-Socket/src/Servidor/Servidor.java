@@ -1,6 +1,9 @@
 package Servidor;
 import java.io.*;
 import java.util.*;
+
+import Services.Fabrica;
+
 import java.net.*;
 
 public class Servidor {
@@ -24,6 +27,9 @@ public class Servidor {
 			
 			PrintStream ps = new PrintStream(cliente.getOutputStream());
 			this.clientes.add(ps);
+			
+			ReceptorDeMensagensDoServidor receptor = new ReceptorDeMensagensDoServidor(cliente.getInputStream());
+			new Thread(receptor).start();
 		}
 	}
 	

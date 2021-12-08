@@ -1,14 +1,15 @@
 package Cliente;
 import java.io.*;
 import java.net.*;
+import java.util.*;
 
 public class Cliente {
 	//Caso o cliente conecte-se ao servidor, ele pode se tornar um consumidor ou um produtor
 	private String host = "127.0.0.1";
     private int porta = 12345;
     private Socket cliente;
-    private DataInputStream entrada;
-    private DataOutputStream saida;
+    private Scanner entrada;
+    private PrintStream saida;
     
 
     public static void main(String args[]) {
@@ -33,20 +34,37 @@ public class Cliente {
         } catch (UnknownHostException ex) {
             conectaSocket();
         }
-        entrada = new DataInputStream(cliente.getInputStream());
-        saida = new DataOutputStream(cliente.getOutputStream());
+        entrada = new Scanner(System.in);
+        saida = new PrintStream(cliente.getOutputStream());
         System.out.println("O cliente foi conectado ao servidor.");
     }
 
     public void enviaMsg() throws IOException {
-        saida.writeInt(1);
-        saida.writeUTF("Um");
+		String tipo = "";
+		String mensagem;
+
+		while (!tipo.equalsIgnoreCase("p") && !tipo.equalsIgnoreCase("c")) {
+			System.out.println("Digite p para ser **produtor** e c para ser **Consumidor**?");
+			tipo = entrada.nextLine();
+		}
+		
+		if(tipo.equalsIgnoreCase("p")) {
+			System.out.println("Você escolheu ser produtor");
+		}else 
+			System.out.println("Você escolheu ser consumidor");
+		
+		if(tipo.equalsIgnoreCase("p"))
+			System.out.println("Digite algo para produzir");
+
+		while (entrada.hasNextLine()) {
+			mensagem = entrada.nextLine();
+			saida.println(tipo + " - "+ mensagem);
+		}
     }
 
     public void recebeMsg() throws IOException {
         System.out.println("Aguardando comando");
-        String comando = entrada.readUTF();
-        System.out.println("Comando realizado: " + comando);
+        enviaMsg();
     }
 
     public void desconectaSocket() throws IOException {
