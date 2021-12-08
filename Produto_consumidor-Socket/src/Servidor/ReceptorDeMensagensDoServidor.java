@@ -21,7 +21,7 @@ public class ReceptorDeMensagensDoServidor implements Runnable {
 		while (scanner.hasNextLine()) {
 			String mensagem = scanner.nextLine();
 			if (mensagem.startsWith("p")) 
-				fabrica.produzir();
+				fabrica.produzir(mensagem.split(" - ")[1]);
 			else 
 				fabrica.consumir();
 		}

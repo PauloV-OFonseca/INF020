@@ -1,16 +1,20 @@
 package Services;
 
+import java.util.ArrayList;
+
 public class Fabrica {
 	//A fabrica tem a capacidade de produzir ou consumir através das ações do cliente
 	private int contador;
 	private Semaforo mutex;
 	private Semaforo items;
 	private static Fabrica instancia;
+	private ArrayList<String> mensagens;
 	
 	private Fabrica() {
 		this.contador = 0;
 		this.mutex = new Semaforo(1);
 		this.items = new Semaforo(0);
+		this.mensagens = new ArrayList<>();
 	}
 	
 	public static Fabrica getInstance() {
@@ -43,8 +47,20 @@ public class Fabrica {
 		this.items.up();
 	}
 	
-	public void produzir() {
-		Produtor produtor = new Produtor(getInstance());
+    public void addMsg(String msg) {
+        this.mensagens.add(msg);
+    }
+    
+    public String getMsg(int index) {
+        return this.mensagens.get(index);
+    }
+    
+    public void delMsg(int index) {
+    	this.mensagens.remove(index);
+    }
+	
+	public void produzir(String msg) {
+		Produtor produtor = new Produtor(getInstance(), msg);
 		produtor.produzir();
 	}
 
