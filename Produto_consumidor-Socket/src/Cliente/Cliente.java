@@ -39,6 +39,7 @@ public class Cliente {
         System.out.println("O cliente foi conectado ao servidor.");
     }
 
+    //Continua enviando mensagens permanentemente ao servidor
     public void enviaMsg() throws IOException {
 		String tipo = "";
 		String mensagem;

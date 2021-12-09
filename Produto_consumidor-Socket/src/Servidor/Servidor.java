@@ -28,6 +28,8 @@ public class Servidor {
 			PrintStream ps = new PrintStream(cliente.getOutputStream());
 			this.clientes.add(ps);
 			
+			//Faz a chamada do runnable de recepção de mensagens enviadas ao servidor
+			//pelo consumidor e pelo produtor
 			ReceptorDeMensagensDoServidor receptor = new ReceptorDeMensagensDoServidor(cliente.getInputStream());
 			new Thread(receptor).start();
 		}

@@ -59,11 +59,13 @@ public class Fabrica {
     	this.mensagens.remove(index);
     }
 	
+    //Inicia o processo de produção
 	public void produzir(String msg) {
 		Produtor produtor = new Produtor(getInstance(), msg);
 		produtor.produzir();
 	}
 
+	//Inicia o processo de consumir
 	public void consumir() {
 		Consumidor consumidor = new Consumidor(getInstance());
 		consumidor.consumir();

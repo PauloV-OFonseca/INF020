@@ -13,6 +13,8 @@ public class Produtor {
 		this.msg = msg;
 	}
 	
+	//Produz uma mensagem, insere-a na lista 
+	//E adiciona um valor ao contador, mutex e items
 	public void produzir() {
 		fabrica.addMsg(msg);
 		fabrica.somarContador();
